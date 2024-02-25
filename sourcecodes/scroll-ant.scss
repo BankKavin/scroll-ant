@@ -1,0 +1,157 @@
+.scrollAnt.autoAnt {
+    opacity: 0;
+}
+.scrollAnt{    
+    transition: transform 500ms,opacity 500ms,height 500ms,width 500ms;
+    pointer-events: none;
+    *{
+        transition: transform 500ms,opacity 500ms,height 500ms,width 500ms;
+    }
+    &.sca-bcrop,
+    .sca-bcrop{
+        position: relative;
+        overflow: hidden;
+    }
+    &.skelton-l,
+    .skelton-l{
+        pointer-events: none;
+        position: relative;
+        overflow: hidden;
+        &.b-rounded{
+            &::before {
+                border-radius: 10px;
+            }
+        }
+        &::before {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background-color: #ececec;
+            position: absolute;
+        }
+        &::after {
+            content: "";
+            height: 100%;
+            width: 5%;
+            background-color: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            box-shadow: 0px 0px 20px 20px white;
+            opacity: 0.5;
+            animation-name: skeltonLoading;
+            animation-duration: 2s;
+            animation-delay: 2s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+        }
+        // .news-thumbnail{
+        //     visibility: hidden;
+        // }
+    }
+
+    &.nhrcNews{
+        background-position: 0% 0%;
+        .detail-box{
+            transform: translateY(-100%);
+        }
+    }
+}
+   
+.scrollAnt.scrolled {
+    opacity: 1;
+    transition: transform 500ms,opacity 500ms,height 500ms,width 500ms;
+    pointer-events: unset;
+    *{
+        transition: transform 500ms,opacity 500ms,height 500ms,width 500ms;
+    }
+    &.skelton-l,
+    .skelton-l{
+        pointer-events: unset;
+        &::before {
+            display: none;
+        }
+        &::after {
+            display: none;
+        }
+        // .news-thumbnail{
+        //     visibility: unset;
+        // }
+    }
+    &.nhrcNews{
+        background-position: 0% 50%;
+        .detail-box{
+            transform: translateY(0%);
+        }
+    }
+}
+  
+@keyframes skeltonLoading {
+    0%{
+        left: -10%;
+    }
+    100%{
+        left: 100%;
+    }
+}
+@keyframes skeltonDisplay {
+    0%{
+        display: block;
+    }
+    99%{
+        display: block;
+    }
+    100%{
+        display: none;
+    }
+}
+@keyframes coinSpin {
+    0%{
+        transform: rotateY(0deg);
+    }
+    100%{
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes lightBlink {
+    0%{
+        opacity: 1;
+    }
+    5%{
+        opacity: 0.5;
+    }
+    6%{
+        opacity: 0;
+    }
+    7%{
+        opacity: 1;
+    }
+    8%{
+        opacity: 0;
+    }
+    9%{
+        opacity: 1;
+    }
+    70%{
+        opacity: 1;
+    }
+    78%{
+        opacity: 0.5;
+    }
+    79%{
+        opacity: 0;
+    }
+    80%{
+        opacity: 1;
+    }
+    81%{
+        opacity: 0;
+    }
+    82%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 1;
+    }
+}
